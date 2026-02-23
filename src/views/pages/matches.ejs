@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <%- include("../partials/header") %>
+
+  <main class="container">
+    <section class="hero">
+      <h1><%= title %></h1>
+      <p class="subtitle">These are sample matches (we’ll pull from PostgreSQL later).</p>
+
+      <div class="note">
+        <% matches.forEach(m => { %>
+          <p><strong>#<%= m.id %></strong> — <%= m.teamA %> vs <%= m.teamB %> (<%= m.status %>)</p>
+        <% }) %>
+      </div>
+    </section>
+  </main>
+
+  <%- include("../partials/footer") %>
+</body>
+</html>

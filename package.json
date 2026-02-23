@@ -1,0 +1,21 @@
+{
+  "name": "byui-pickleball",
+  "version": "1.0.0",
+  "description": "BYU-I Intramural Doubles Pickleball Tracker",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Brynlee Bingham",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.13"
+  }
+}

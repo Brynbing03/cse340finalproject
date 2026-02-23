@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <%- include("../partials/header") %>
+
+  <main class="container">
+    <section class="hero">
+      <h1><%= title %></h1>
+      <p class="subtitle"><%= subtitle %></p>
+
+      <div class="card-grid">
+        <article class="card">
+          <h2>Women’s Doubles</h2>
+          <p>Teams, pickup matches, standings.</p>
+        </article>
+
+        <article class="card">
+          <h2>Men’s Doubles</h2>
+          <p>Teams, pickup matches, standings.</p>
+        </article>
+
+        <article class="card">
+          <h2>Mixed Doubles</h2>
+          <p>Teams, pickup matches, standings.</p>
+        </article>
+      </div>
+
+      <div class="note">
+        <strong>Workflow:</strong> Request match → staff approval → submit score → staff approval → standings update.
+      </div>
+    </section>
+  </main>
+
+  <%- include("../partials/footer") %>
+</body>
+</html>

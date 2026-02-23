@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <%- include("../partials/header") %>
+
+  <main class="container">
+    <section class="hero">
+      <h1><%= title %></h1>
+      <p class="subtitle">This form is UI-only for now. Later we will save it to the database.</p>
+
+      <div class="note">
+        <form>
+          <label><strong>Division</strong></label><br />
+          <select>
+            <% divisions.forEach(d => { %>
+              <option value="<%= d.id %>"><%= d.name %></option>
+            <% }) %>
+          </select>
+
+          <br /><br />
+
+          <label><strong>Your Team</strong></label><br />
+          <select>
+            <% teams.forEach(t => { %>
+              <option value="<%= t.id %>"><%= t.name %></option>
+            <% }) %>
+          </select>
+
+          <br /><br />
+
+          <label><strong>Opponent Team</strong></label><br />
+          <select>
+            <% teams.forEach(t => { %>
+              <option value="<%= t.id %>"><%= t.name %></option>
+            <% }) %>
+          </select>
+
+          <br /><br />
+
+          <label><strong>Requested Date/Time</strong></label><br />
+          <input type="datetime-local" />
+
+          <br /><br />
+
+          <button class="nav-link" type="button">Submit Request (Coming Soon)</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <%- include("../partials/footer") %>
+</body>
+</html>
