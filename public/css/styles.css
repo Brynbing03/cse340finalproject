@@ -1,15 +1,15 @@
 :root {
-    /* Your palette */
+    /* my colors for right now  */
     --smash: #FBDBDB;
     --match: #DDE255;
     --drop: #F98B05;
     --double: #F35695;
     --court: #264414;
   
-    --bg: #DFF3FF; /* light blue */
+    --bg: #DFF3FF;
   }
   
-  /* Reset */
+  /*reset */
   * {
     box-sizing: border-box;
   }
@@ -19,10 +19,10 @@
     font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     color: var(--court);
   
-    /* Light blue base */
+    /*light blue base */
     background-color: var(--bg);
   
-    /* Subtle pickleball dot pattern */
+    /*i wanted a chill simple pickleball dot pattern for the bk gd*/
     background-image: radial-gradient(
       rgba(38, 68, 20, 0.08) 2px,
       transparent 2px
@@ -30,13 +30,13 @@
     background-size: 24px 24px;
   }
   
-  /* Layout */
+  /*the layout */
   .container {
     width: min(1000px, 92%);
     margin: 0 auto;
   }
   
-  /* Header */
+  /*header styling */
   .site-header {
     background-color: white;
     border-bottom: 3px solid var(--court);
@@ -78,7 +78,7 @@
     cursor: not-allowed;
   }
   
-  /* Hero Section */
+  /*hero section of page */
   .hero {
     padding: 50px 0 30px;
   }
@@ -93,7 +93,7 @@
     margin-bottom: 30px;
   }
   
-  /* Cards */
+  /* the cards */
   .card-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -135,7 +135,7 @@
     font-weight: 500;
   }
   
-  /* Note box */
+  /*note box */
   .note {
     margin-top: 25px;
     padding: 15px;
@@ -144,7 +144,7 @@
     font-weight: 500;
   }
   
-  /* Footer */
+  /*footer styling */
   .site-footer {
     margin-top: 50px;
     padding: 20px 0;
@@ -153,7 +153,7 @@
     border-top: 3px solid var(--court);
   }
   
-  /* Responsive */
+  /* making it a little responsive */
   @media (max-width: 900px) {
     .card-grid {
       grid-template-columns: 1fr;
