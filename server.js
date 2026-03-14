@@ -7,6 +7,8 @@ import routes from "./src/routes/index.js";
 import logger from "./src/middleware/logger.js";
 
 import siteData from "./src/middleware/siteData.js";
+import baseData from "./src/middleware/baseData.js";
+
 
 dotenv.config();
 
@@ -25,6 +27,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(logger);
+app.use(siteData);
+app.use(baseData);
+
 
 // routes
 app.use("/", routes);
@@ -45,7 +50,6 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.use(siteData);
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);

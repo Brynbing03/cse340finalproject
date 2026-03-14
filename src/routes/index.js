@@ -1,63 +1,28 @@
 import { Router } from "express";
+import {
+  buildHome,
+  buildDivisions,
+  buildMatches,
+  buildRequestMatch,
+  submitRequestMatch,
+  buildTeamById
+} from "../controllers/siteController.js";
 
 const router = Router();
 
-router.get("/", (req, res) => {
-  res.render("pages/home", {
-    title: "Home",
-    pageTitle: "BYU-I Intramural Pickleball",
-    subtitle: "Doubles only • Women • Men • Mixed"
-  });
-});
+router.get("/", buildHome);
+router.get("/divisions", buildDivisions);
+router.get("/matches", buildMatches);
+router.get("/matches/request", buildRequestMatch);
+router.post("/matches/request", submitRequestMatch);
+router.get("/teams/:id", buildTeamById);
 
-router.get("/divisions", (req, res) => {
-  res.render("pages/divisions", {
-    title: "Divisions",
-    pageTitle: "Divisions",
-    subtitle: "Choose a division to view teams, matches, and standings later."
-  });
-});
 
-router.get("/matches", (req, res) => {
-  res.render("pages/matches", {
-    title: "Matches",
-    pageTitle: "Matches",
-    subtitle: "These are sample match cards for now. Real data will come later."
-  });
-});
+// i have this so that i can test my 500 error page saying that it is a server error! it works yay
 
-router.get("/matches/request", (req, res) => {
-  res.render("pages/request-match", {
-    title: "Request Match",
-    pageTitle: "Request a Pickup Match",
-    subtitle: "Fill out the form below to request a match."
-  });
-});
-
-router.post("/matches/request", (req, res) => {
-  const { division, teamA, teamB, matchDate } = req.body;
-
-  res.render("pages/request-confirmation", {
-    title: "Request Submitted",
-    pageTitle: "Match Request Submitted",
-    division,
-    teamA,
-    teamB,
-    matchDate
-  });
-});
-
-router.get("/teams/:id", (req, res) => {
-
-    const teamId = req.params.id;
-  
-    res.render("pages/team", {
-      title: "Team",
-      pageTitle: `Team ${teamId}`,
-      teamId
-    });
-  
-  });
+// router.get("/error-test", (req, res, next) => {
+//     next(new Error("Test 500 error"));
+//   });
   
 
 export default router;
