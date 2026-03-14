@@ -47,4 +47,17 @@ router.post("/matches/request", (req, res) => {
   });
 });
 
+router.get("/teams/:id", (req, res) => {
+
+    const teamId = req.params.id;
+  
+    res.render("pages/team", {
+      title: "Team",
+      pageTitle: `Team ${teamId}`,
+      teamId
+    });
+  
+  });
+  
+
 export default router;
