@@ -29,8 +29,11 @@ app.use("/", routes);
 
 // 404 fallback
 app.use((req, res) => {
-  res.status(404).send("404 - Page not found");
+  res.status(404).render("pages/404", {
+    title: "404"
+  });
 });
+
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);

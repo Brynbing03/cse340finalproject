@@ -30,7 +30,20 @@ router.get("/matches/request", (req, res) => {
   res.render("pages/request-match", {
     title: "Request Match",
     pageTitle: "Request a Pickup Match",
-    subtitle: "Later this form will save a new pickup match request to the database."
+    subtitle: "Fill out the form below to request a match."
+  });
+});
+
+router.post("/matches/request", (req, res) => {
+  const { division, teamA, teamB, matchDate } = req.body;
+
+  res.render("pages/request-confirmation", {
+    title: "Request Submitted",
+    pageTitle: "Match Request Submitted",
+    division,
+    teamA,
+    teamB,
+    matchDate
   });
 });
 

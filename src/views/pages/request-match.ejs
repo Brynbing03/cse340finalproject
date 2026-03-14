@@ -12,32 +12,32 @@
       <p class="subtitle"><%= subtitle %></p>
 
       <div class="note">
-        <form class="match-form">
+        <form class="match-form" action="/matches/request" method="post">
           <label for="division">Division</label>
-          <select id="division" name="division">
-            <option>Women’s Doubles</option>
-            <option>Men’s Doubles</option>
-            <option>Mixed Doubles</option>
+          <select id="division" name="division" required>
+            <option value="Women’s Doubles">Women’s Doubles</option>
+            <option value="Men’s Doubles">Men’s Doubles</option>
+            <option value="Mixed Doubles">Mixed Doubles</option>
           </select>
 
           <label for="teamA">Your Team</label>
-          <select id="teamA" name="teamA">
-            <option>Pickle Queens</option>
-            <option>Court Kings</option>
-            <option>Mixed Magic</option>
+          <select id="teamA" name="teamA" required>
+            <option value="Pickle Queens">Pickle Queens</option>
+            <option value="Court Kings">Court Kings</option>
+            <option value="Mixed Magic">Mixed Magic</option>
           </select>
 
           <label for="teamB">Opponent Team</label>
-          <select id="teamB" name="teamB">
-            <option>Dink Girls</option>
-            <option>Smash Bros</option>
-            <option>Double Trouble</option>
+          <select id="teamB" name="teamB" required>
+            <option value="Dink Girls">Dink Girls</option>
+            <option value="Smash Bros">Smash Bros</option>
+            <option value="Double Trouble">Double Trouble</option>
           </select>
 
           <label for="matchDate">Requested Date and Time</label>
-          <input id="matchDate" name="matchDate" type="datetime-local" />
+          <input id="matchDate" name="matchDate" type="datetime-local" required>
 
-          <button type="button" class="btn">Submit Request</button>
+          <button type="submit" class="btn">Submit Request</button>
         </form>
       </div>
     </section>

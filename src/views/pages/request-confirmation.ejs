@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("../partials/head") %>
+</head>
+<body>
+  <%- include("../partials/header") %>
+
+  <main class="container">
+    <section class="hero">
+      <h1><%= pageTitle %></h1>
+      <p class="subtitle">Your pickup match request has been submitted.</p>
+
+    <div class="note">
+        <p><strong>Division:</strong> <%= division %></p>
+        <p><strong>Your Team:</strong> <%= teamA %></p>
+        <p><strong>Opponent Team:</strong> <%= teamB %></p>
+        <p><strong>Date/Time:</strong> <%= matchDate.replace("T", " at ") %></p>
+    </div>
+    </section>
+  </main>
+
+  <%- include("../partials/footer") %>
+</body>
+</html>
