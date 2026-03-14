@@ -1,54 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title><%= title %></title>
-  <link rel="stylesheet" href="/css/styles.css" />
+  <%- include("../partials/head") %>
 </head>
 <body>
   <%- include("../partials/header") %>
 
   <main class="container">
     <section class="hero">
-      <h1><%= title %></h1>
-      <p class="subtitle">This form is UI-only for now but I'm going to change it. Later its going to saved to the database.</p>
+      <h1><%= pageTitle %></h1>
+      <p class="subtitle"><%= subtitle %></p>
 
       <div class="note">
-        <form>
-          <label><strong>Division</strong></label><br />
-          <select>
-            <% divisions.forEach(d => { %>
-              <option value="<%= d.id %>"><%= d.name %></option>
-            <% }) %>
+        <form class="match-form">
+          <label for="division">Division</label>
+          <select id="division" name="division">
+            <option>Women’s Doubles</option>
+            <option>Men’s Doubles</option>
+            <option>Mixed Doubles</option>
           </select>
 
-          <br /><br />
-
-          <label><strong>Your Team</strong></label><br />
-          <select>
-            <% teams.forEach(t => { %>
-              <option value="<%= t.id %>"><%= t.name %></option>
-            <% }) %>
+          <label for="teamA">Your Team</label>
+          <select id="teamA" name="teamA">
+            <option>Pickle Queens</option>
+            <option>Court Kings</option>
+            <option>Mixed Magic</option>
           </select>
 
-          <br /><br />
-
-          <label><strong>Opponent Team</strong></label><br />
-          <select>
-            <% teams.forEach(t => { %>
-              <option value="<%= t.id %>"><%= t.name %></option>
-            <% }) %>
+          <label for="teamB">Opponent Team</label>
+          <select id="teamB" name="teamB">
+            <option>Dink Girls</option>
+            <option>Smash Bros</option>
+            <option>Double Trouble</option>
           </select>
 
-          <br /><br />
+          <label for="matchDate">Requested Date and Time</label>
+          <input id="matchDate" name="matchDate" type="datetime-local" />
 
-          <label><strong>Requested Date/Time</strong></label><br />
-          <input type="datetime-local" />
-
-          <br /><br />
-
-          <button class="nav-link" type="button">Submit Request (Coming Soon)</button>
+          <button type="button" class="btn">Submit Request</button>
         </form>
       </div>
     </section>

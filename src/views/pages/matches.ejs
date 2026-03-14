@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title><%= title %></title>
-  <link rel="stylesheet" href="/css/styles.css" />
+  <%- include("../partials/head") %>
 </head>
 <body>
   <%- include("../partials/header") %>
 
   <main class="container">
     <section class="hero">
-      <h1><%= title %></h1>
-      <p class="subtitle">These are sample matches (we’ll pull from PostgreSQL later).</p>
+      <h1><%= pageTitle %></h1>
+      <p class="subtitle"><%= subtitle %></p>
 
-      <div class="note">
-        <% matches.forEach(m => { %>
-          <p><strong>#<%= m.id %></strong> — <%= m.teamA %> vs <%= m.teamB %> (<%= m.status %>)</p>
-        <% }) %>
+      <div class="card-grid">
+        <article class="card">
+          <h2>Mixed Magic vs Double Trouble</h2>
+          <p>Status: Requested</p>
+        </article>
+
+        <article class="card">
+          <h2>Court Kings vs Smash Bros</h2>
+          <p>Status: Scheduled</p>
+        </article>
+
+        <article class="card">
+          <h2>Pickle Queens vs Dink Girls</h2>
+          <p>Status: Final</p>
+        </article>
       </div>
     </section>
   </main>

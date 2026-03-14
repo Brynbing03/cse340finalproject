@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title><%= title %></title>
-  <link rel="stylesheet" href="/css/styles.css" />
+  <%- include("../partials/head") %>
 </head>
 <body>
   <%- include("../partials/header") %>
 
   <main class="container">
     <section class="hero">
-      <h1><%= title %></h1>
-      <p class="subtitle">Choose a division to view teams and standings later.</p>
+      <h1><%= pageTitle %></h1>
+      <p class="subtitle"><%= subtitle %></p>
 
       <div class="card-grid">
-        <% divisions.forEach(d => { %>
-          <article class="card">
-            <h2><%= d.name %></h2>
-            <p>Division ID: <%= d.id %></p>
-          </article>
-        <% }) %>
+        <article class="card">
+          <h2>Women’s Doubles</h2>
+          <p>Two female players per team.</p>
+        </article>
+
+        <article class="card">
+          <h2>Men’s Doubles</h2>
+          <p>Two male players per team.</p>
+        </article>
+
+        <article class="card">
+          <h2>Mixed Doubles</h2>
+          <p>One female player and one male player per team.</p>
+        </article>
       </div>
     </section>
   </main>

@@ -1,161 +1,179 @@
 :root {
-    /* my colors for right now  */
-    --smash: #FBDBDB;
-    --match: #DDE255;
-    --drop: #F98B05;
-    --double: #F35695;
-    --court: #264414;
-  
-    --bg: #DFF3FF;
-  }
-  
-  /*reset */
-  * {
-    box-sizing: border-box;
-  }
-  
-  body {
-    margin: 0;
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    color: var(--court);
-  
-    /*light blue base */
-    background-color: var(--bg);
-  
-    /*i wanted a chill simple pickleball dot pattern for the bk gd*/
-    background-image: radial-gradient(
-      rgba(38, 68, 20, 0.08) 2px,
-      transparent 2px
-    );
-    background-size: 24px 24px;
-  }
-  
-  /*the layout */
-  .container {
-    width: min(1000px, 92%);
-    margin: 0 auto;
-  }
-  
-  /*header styling */
-  .site-header {
-    background-color: white;
-    border-bottom: 3px solid var(--court);
-  }
-  
-  .header-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 0;
-  }
-  
-  .brand {
-    font-weight: 800;
-    font-size: 1.2rem;
-    text-decoration: none;
-    color: var(--court);
-  }
-  
-  .nav {
-    display: flex;
-    gap: 12px;
-  }
-  
-  .nav-link {
-    text-decoration: none;
-    color: var(--court);
-    font-weight: 600;
-    padding: 6px 10px;
-    border-radius: 10px;
-  }
-  
-  .nav-link:hover {
-    background-color: var(--smash);
-  }
-  
-  .nav-link.muted {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-  
-  /*hero section of page */
-  .hero {
-    padding: 50px 0 30px;
-  }
-  
-  h1 {
-    font-size: 2.8rem;
-    margin-bottom: 10px;
-  }
-  
-  .subtitle {
-    font-size: 1.1rem;
-    margin-bottom: 30px;
-  }
-  
-  /* the cards */
+  --smash: #FBDBDB;
+  --match: #DDE255;
+  --drop: #F98B05;
+  --double: #F35695;
+  --court: #264414;
+  --bg: #DFF3FF;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--court);
+  background-color: var(--bg);
+  background-image: radial-gradient(rgba(38, 68, 20, 0.12) 2px, transparent 2px);
+  background-size: 30px 30px;
+}
+
+.container {
+  width: min(1000px, 92%);
+  margin: 0 auto;
+}
+
+.site-header {
+  background-color: white;
+  border-bottom: 3px solid var(--court);
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: var(--court);
+}
+
+.nav {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--court);
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 10px;
+}
+
+.nav-link:hover {
+  background-color: var(--smash);
+}
+
+.hero {
+  padding: 50px 0 30px;
+}
+
+h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  padding: 25px;
+  border-radius: 20px;
+  font-weight: 600;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.card:nth-child(1) {
+  background-color: var(--smash);
+}
+
+.card:nth-child(2) {
+  background-color: var(--match);
+}
+
+.card:nth-child(3) {
+  background-color: var(--double);
+  color: white;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.card p {
+  margin: 0;
+  font-weight: 500;
+}
+
+.note {
+  margin-top: 25px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 15px;
+  font-weight: 500;
+}
+
+.match-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.match-form label {
+  font-weight: 700;
+}
+
+.match-form select,
+.match-form input {
+  padding: 10px 12px;
+  border: 2px solid var(--court);
+  border-radius: 10px;
+  font: inherit;
+}
+
+.btn {
+  margin-top: 10px;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--drop);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  font: inherit;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.site-footer {
+  margin-top: 50px;
+  padding: 20px 0;
+  background-color: white;
+  text-align: center;
+  border-top: 3px solid var(--court);
+}
+
+@media (max-width: 900px) {
   .card-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: 1fr;
   }
-  
-  .card {
-    padding: 25px;
-    border-radius: 20px;
-    font-weight: 600;
-    text-align: center;
-    transition: transform 0.2s ease;
+
+  .header-inner {
+    flex-direction: column;
+    gap: 10px;
   }
-  
-  .card:nth-child(1) {
-    background-color: var(--smash);
-  }
-  
-  .card:nth-child(2) {
-    background-color: var(--match);
-  }
-  
-  .card:nth-child(3) {
-    background-color: var(--double);
-    color: white;
-  }
-  
-  .card:hover {
-    transform: translateY(-6px);
-  }
-  
-  .card h2 {
-    margin-top: 0;
-    margin-bottom: 10px;
-  }
-  
-  .card p {
-    margin: 0;
-    font-weight: 500;
-  }
-  
-  /*note box */
-  .note {
-    margin-top: 25px;
-    padding: 15px;
-    background-color: white;
-    border-radius: 15px;
-    font-weight: 500;
-  }
-  
-  /*footer styling */
-  .site-footer {
-    margin-top: 50px;
-    padding: 20px 0;
-    background-color: white;
-    text-align: center;
-    border-top: 3px solid var(--court);
-  }
-  
-  /* making it a little responsive */
-  @media (max-width: 900px) {
-    .card-grid {
-      grid-template-columns: 1fr;
-    }
-  }
+}
