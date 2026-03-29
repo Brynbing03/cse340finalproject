@@ -1,7 +1,8 @@
+import 'dotenv/config'
+
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
-import dotenv from "dotenv";
 
 import routes from "./src/routes/index.js";
 import logger from "./src/middleware/logger.js";
@@ -9,8 +10,7 @@ import logger from "./src/middleware/logger.js";
 import siteData from "./src/middleware/siteData.js";
 import baseData from "./src/middleware/baseData.js";
 
-
-dotenv.config();
+import { setupDatabase, testConnection } from './src/models/setup.js'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -51,6 +51,8 @@ app.use((err, req, res, next) => {
 });
 
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+app.listen(PORT, async () => {
+  await setupDatabase()
+  await testConnection()
+  console.log(`Server is running on http://127.0.0.1:${PORT}`)
 });
