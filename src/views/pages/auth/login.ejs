@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("../../partials/head") %>
+</head>
+<body>
+  <%- include("../../partials/header") %>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Login</h1>
+      <p class="subtitle">Sign in to manage your teams and matches.</p>
+
+      <div class="card">
+        <form method="POST" action="/login" class="match-form">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required>
+
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <%- include("../../partials/footer") %>
+</body>
+</html>

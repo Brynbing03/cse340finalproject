@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("../../partials/head") %>
+</head>
+<body>
+  <%- include("../../partials/header") %>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Match Requests</h1>
+      <p class="subtitle">Review submitted pickup match requests.</p>
+
+      <% if (requests.length === 0) { %>
+        <div class="note">No pending match requests.</div>
+      <% } else { %>
+        <div class="card-grid">
+          <% requests.forEach(request => { %>
+            <article class="card">
+              <h2><%= request.requesting_team %> vs <%= request.opponent_team %></h2>
+              <p><strong>Date:</strong> <%= request.requested_date || 'Not set' %></p>
+              <p><strong>Time:</strong> <%= request.requested_time || 'Not set' %></p>
+              <p><strong>Location:</strong> <%= request.location || 'Not set' %></p>
+              <p><strong>Status:</strong> <%= request.status %></p>
+
+              <div class="admin-actions">
+                <form method="POST" action="/admin/match-requests/<%= request.id %>/approve">
+                  <button type="submit">Approve</button>
+                </form>
+
+                <form method="POST" action="/admin/match-requests/<%= request.id %>/reject">
+                  <button type="submit" class="reject-btn">Reject</button>
+                </form>
+              </div>
+            </article>
+          <% }) %>
+        </div>
+      <% } %>
+    </section>
+  </main>
+
+  <%- include("../../partials/footer") %>
+</body>
+</html>

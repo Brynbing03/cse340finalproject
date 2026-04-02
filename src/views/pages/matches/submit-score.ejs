@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("../../partials/head") %>
+</head>
+<body>
+  <%- include("../../partials/header") %>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Submit Score</h1>
+      <p class="subtitle"><%= match.team_a %> vs <%= match.team_b %></p>
+
+      <div class="card">
+        <form method="POST" action="/matches/<%= match.id %>/submit-score" class="match-form">
+          <label for="teamAScore"><%= match.team_a %> Score</label>
+          <input type="number" name="teamAScore" id="teamAScore" min="0" required>
+
+          <label for="teamBScore"><%= match.team_b %> Score</label>
+          <input type="number" name="teamBScore" id="teamBScore" min="0" required>
+
+          <button type="submit">Submit Score</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <%- include("../../partials/footer") %>
+</body>
+</html>

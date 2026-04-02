@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("../../partials/head") %>
+</head>
+<body>
+  <%- include("../../partials/header") %>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Submit a Score</h1>
+      <p class="subtitle">Choose an official match and enter the final result.</p>
+
+      <% if (matches.length === 0) { %>
+        <div class="note">No official matches available yet.</div>
+      <% } else { %>
+        <div class="card-grid">
+          <% matches.forEach(match => { %>
+            <article class="card">
+              <h2><%= match.team_a %> vs <%= match.team_b %></h2>
+              <p><strong>Status:</strong> <%= match.status %></p>
+              <p><strong>Location:</strong> <%= match.location || 'Not set' %></p>
+              <p>
+                <a href="/matches/<%= match.id %>/submit-score">Submit Score</a>
+              </p>
+            </article>
+          <% }) %>
+        </div>
+      <% } %>
+    </section>
+  </main>
+
+  <%- include("../../partials/footer") %>
+</body>
+</html>

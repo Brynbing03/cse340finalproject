@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("../../partials/head") %>
+</head>
+<body>
+  <%- include("../../partials/header") %>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Request a Match</h1>
+      <p class="subtitle">Challenge another approved team to a pickup match.</p>
+
+      <div class="card">
+        <form method="POST" action="/matches/request" class="match-form">
+          
+          <label for="requestingTeamId">Requesting Team</label>
+          <select name="requestingTeamId" id="requestingTeamId" required>
+            <option value="">Choose a team</option>
+            <% teams.forEach(team => { %>
+              <option value="<%= team.id %>"><%= team.name %></option>
+            <% }) %>
+          </select>
+
+          <label for="opponentTeamId">Opponent Team</label>
+          <select name="opponentTeamId" id="opponentTeamId" required>
+            <option value="">Choose a team</option>
+            <% teams.forEach(team => { %>
+              <option value="<%= team.id %>"><%= team.name %></option>
+            <% }) %>
+          </select>
+
+          <label for="requestedDate">Match Date</label>
+          <input type="date" name="requestedDate" id="requestedDate" required>
+
+          <label for="requestedTime">Match Time</label>
+          <input type="time" name="requestedTime" id="requestedTime" required>
+
+          <label for="location">Location</label>
+          <input type="text" name="location" id="location" placeholder="I-Center Court 2" required>
+
+          <button type="submit">Submit Match Request</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <%- include("../../partials/footer") %>
+</body>
+</html>

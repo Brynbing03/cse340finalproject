@@ -1,12 +1,32 @@
 <header class="site-header">
-  <div class="container header-inner">
-    <a href="/" class="brand"> <%= siteName %></a>
+  <div class="nav-container">
+    <div class="logo">
+      <a href="/"> BYU-I Pickleball</a>
+    </div>
 
-    <nav class="nav">
-      <a href="/" class="nav-link">Home</a>
-      <a href="/divisions" class="nav-link">Divisions</a>
-      <a href="/matches" class="nav-link">Matches</a>
-      <a href="/matches/request" class="nav-link">Request Match</a>
+    <nav class="main-nav">
+      <a href="/">Home</a>
+      <a href="/divisions">Divisions</a>
+      <a href="/teams">Teams</a>
+      <a href="/matches">Matches</a>
+      <a href="/matches/request">Request Match</a>
+      <a href="/matches/submit-score">Submit Score</a>
+
+      <% if (!loggedIn) { %>
+        <a href="/register">Register</a>
+        <a href="/login" class="login-btn">Login</a>
+      <% } else { %>
+        <% if (user && user.role === 'admin') { %>
+          <a href="/admin/match-requests">Admin Requests</a>
+          <a href="/admin/scores">Admin Scores</a>
+        <% } %>
+
+        <span class="welcome">Hi, <%= user.firstName %></span>
+
+        <form method="POST" action="/logout" class="logout-form">
+          <button type="submit" class="logout-btn">Logout</button>
+        </form>
+      <% } %>
     </nav>
   </div>
 </header>

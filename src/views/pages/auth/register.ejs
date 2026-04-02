@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("../../partials/head") %>
+</head>
+<body>
+  <%- include("../../partials/header") %>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Create an Account</h1>
+      <p class="subtitle">Register to join the pickleball app.</p>
+
+      <div class="card">
+        <form method="POST" action="/register" class="match-form">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" name="firstName" required>
+
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" name="lastName" required>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="gender">Gender</label>
+          <select id="gender" name="gender">
+            <option value="">Select one</option>
+            <option value="F">Female</option>
+            <option value="M">Male</option>
+          </select>
+
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required>
+
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+          <button type="submit">Register</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <%- include("../../partials/footer") %>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("../../partials/head") %>
+</head>
+<body>
+  <%- include("../../partials/header") %>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Teams</h1>
+      <p class="subtitle">Browse all registered pickleball teams by division and season.</p>
+
+      <div class="card-grid">
+        <% teams.forEach(team => { %>
+          <article class="card">
+            <h2>
+              <a href="/teams/<%= team.slug %>"><%= team.name %></a>
+            </h2>
+            <p><strong>Division:</strong> <%= team.division_name || 'None' %></p>
+            <p><strong>Season:</strong> <%= team.season_name || 'None' %></p>
+          </article>
+        <% }) %>
+      </div>
+
+      <% if (teams.length === 0) { %>
+        <div class="note">
+          <p>No teams found.</p>
+        </div>
+      <% } %>
+    </section>
+  </main>
+
+  <%- include("../../partials/footer") %>
+</body>
+</html>

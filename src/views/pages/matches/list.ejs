@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("../../partials/head") %>
+</head>
+<body>
+  <%- include("../../partials/header") %>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Official Matches</h1>
+      <p class="subtitle">Approved matches that are scheduled and ready to be played.</p>
+
+      <% if (matches.length === 0) { %>
+        <div class="note">No official matches yet.</div>
+      <% } else { %>
+        <div class="card-grid">
+          <% matches.forEach(match => { %>
+            <article class="card">
+              <h2><%= match.team_a %> vs <%= match.team_b %></h2>
+              <p><strong>When:</strong> <%= match.scheduled_at || 'Not scheduled yet' %></p>
+              <p><strong>Location:</strong> <%= match.location || 'Not set' %></p>
+              <p><strong>Status:</strong> <%= match.status %></p>
+            </article>
+          <% }) %>
+        </div>
+      <% } %>
+    </section>
+  </main>
+
+  <%- include("../../partials/footer") %>
+</body>
+</html>

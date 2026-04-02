@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("../../partials/head") %>
+</head>
+<body>
+  <%- include("../../partials/header") %>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Pending Score Submissions</h1>
+      <p class="subtitle">Approve or reject submitted match scores.</p>
+
+      <% if (submissions.length === 0) { %>
+        <div class="note">No pending score submissions.</div>
+      <% } else { %>
+        <div class="card-grid">
+          <% submissions.forEach(submission => { %>
+            <article class="card">
+              <h2><%= submission.team_a %> vs <%= submission.team_b %></h2>
+              <p><strong>Score:</strong> <%= submission.team_a_score %> - <%= submission.team_b_score %></p>
+              <p><strong>Status:</strong> <%= submission.status %></p>
+
+              <div class="admin-actions">
+                <form method="POST" action="/admin/scores/<%= submission.id %>/approve">
+                  <button type="submit">Approve</button>
+                </form>
+
+                <form method="POST" action="/admin/scores/<%= submission.id %>/reject">
+                  <button type="submit" class="reject-btn">Reject</button>
+                </form>
+              </div>
+            </article>
+          <% }) %>
+        </div>
+      <% } %>
+    </section>
+  </main>
+
+  <%- include("../../partials/footer") %>
+</body>
+</html>

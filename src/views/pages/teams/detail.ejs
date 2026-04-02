@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("../../partials/head") %>
+</head>
+<body>
+  <%- include("../../partials/header") %>
+
+  <main class="container">
+    <section class="hero">
+      <h1><%= team.name %></h1>
+      <p class="subtitle">
+        <strong>Division:</strong> <%= team.division_name || 'None' %> |
+        <strong>Season:</strong> <%= team.season_name || 'None' %>
+      </p>
+
+      <div class="note">
+        <strong>Approved:</strong> <%= team.approved ? 'Yes' : 'No' %>
+      </div>
+
+      <div class="card-grid">
+        <% members.forEach(member => { %>
+          <article class="card">
+            <h2><%= member.first_name %> <%= member.last_name %></h2>
+            <p><strong>Email:</strong> <%= member.email %></p>
+          </article>
+        <% }) %>
+      </div>
+
+      <% if (members.length === 0) { %>
+        <div class="note">
+          <p>No team members found.</p>
+        </div>
+      <% } %>
+    </section>
+  </main>
+
+  <%- include("../../partials/footer") %>
+</body>
+</html>

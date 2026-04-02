@@ -12,6 +12,8 @@ import baseData from "./src/middleware/baseData.js";
 
 import { setupDatabase, testConnection } from './src/models/setup.js'
 
+import session from "express-session";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -26,10 +28,23 @@ app.set("views", path.join(__dirname, "src/views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
+
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      secure: false,
+      httpOnly: true,
+      maxAge: 1000 * 60 * 60 * 24
+    }
+  })
+);
+
 app.use(logger);
 app.use(siteData);
 app.use(baseData);
-
 
 // routes
 app.use("/", routes);
